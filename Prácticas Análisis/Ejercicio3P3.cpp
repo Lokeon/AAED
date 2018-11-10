@@ -39,6 +39,7 @@ int main(void) {
         inser.parar();
         std::cout <<"Inserccion: "<< i << " " << inser.tiempo() << std::endl;
     }
+    
     for(int i = 1000 ; i < 20001 ; i += 1000){
         generate_random_vector(S,1000);
         std::random_shuffle ( S.begin(), S.end() );
