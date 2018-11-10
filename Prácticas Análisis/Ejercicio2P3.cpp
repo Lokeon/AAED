@@ -7,7 +7,7 @@
 #include "cronometro.hpp"
 
 
-int main() {
+int main(void) {
 
     std::vector<int> A = {1,2,3,4,5,6,7,8,9} ,B,C,D ;
     cronometro burb , selec , inser ; 
