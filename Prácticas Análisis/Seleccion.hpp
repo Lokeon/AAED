@@ -12,7 +12,7 @@ void seleccion(std::vector<T>& A) {
             if(A[j] < A[i]) {
                 min = j ;
             }
-            std::swap(A[min],A[j])
+            std::swap(A[min],A[j]);
         }
     }
 }

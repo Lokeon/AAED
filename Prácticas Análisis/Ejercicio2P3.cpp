@@ -1,5 +1,4 @@
 
-#include <vector>
 #include <algorithm>
 #include <iostream>
 #include "Burbuja.hpp"
@@ -34,11 +33,10 @@ int main() {
     inser.activar() ;
     do {
         D = A ;     
-        burbujeo(D);
+        inserccion(D);
     }while(std::next_permutation(A.begin(),A.end()));
     inser.parar();
 
     std::cout << "Burbuja tiempo: " << inser.tiempo() << std::endl;
-
 
 }
