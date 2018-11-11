@@ -37,6 +37,6 @@ int main(void) {
     }while(std::next_permutation(A.begin(),A.end()));
     inser.parar();
 
-    std::cout << "Burbuja tiempo: " << inser.tiempo() << std::endl;
+    std::cout << "Inserccion tiempo: " << inser.tiempo() << std::endl;
 
 }

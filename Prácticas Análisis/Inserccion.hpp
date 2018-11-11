@@ -4,7 +4,7 @@
 template <typename T>
 void inserccion(std::vector<T>& A) {
 
-    int j;
+    int j = 0;
     
     for(int i = 0 ; i < A.size() ; ++i) {
         j = i ; 
