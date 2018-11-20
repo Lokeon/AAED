@@ -3,7 +3,7 @@
 # Edit at https://www.gitignore.io/?templates=c++
 
 .vscode/
-
+.wakatime-project
 ### C++ ###
 # Prerequisites
 *.d
