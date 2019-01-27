@@ -1,7 +1,7 @@
 #include <iostream>
 #include "TadConsultorio.hpp"
 #include "TadSimbolo.hpp"
-#include "TadDicionario.hpp"
+#include "TadDiccionario.hpp"
 
 int main(void)
 {
@@ -40,5 +40,18 @@ int main(void)
     // sim.mirar();
 
     //TAD DICCIONARIO
+    // Diccionario dic;
+    // Traduccion tra("green");
+    // Traduccion tar("blue");
+    // tra.insertarTraducciones("verde");
+    // tra.insertarTraducciones("rojo");
+    // tar.insertarTraducciones("azul");
+    
+    // tra.eliminarTraducciones("rojo");
+
+    // dic.insertarDiccionario(tra);
+    // dic.insertarDiccionario(tar);
+    // dic.mostrarDiccionario(tar);
+    // dic.mostrarDiccionario(tra);
 
 }

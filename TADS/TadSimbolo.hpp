@@ -1,7 +1,6 @@
 #ifndef Simbolo_HPP
 #define Simbolo_HPP
 
-#include <string>
 #include <iostream>
 #include "./Lista/ListaDoEnlaCabe.hpp"
 
@@ -14,8 +13,6 @@ class Simbolo
 {
   public:
     Simbolo() = default;
-    // Para hacer asigna -- Prueba
-    // Simbolo(const Simbolo& sim);
     void anadirTrazo(int trazo);
     void deshacerTrazo(int n);
     Simbolo respectoX();
