@@ -1,5 +1,6 @@
 #include <iostream>
 #include "TadConsultorio.hpp"
+#include "TadSimbolo.hpp"
 
 int main(void)
 {
@@ -13,8 +14,11 @@ int main(void)
     // consult.altaMedico(uno);
     // consult.altaMedico(dos);
     // consult.esperaPaciente(pa, uno);
-    
+
     // consult.consultaMedico(dos);
 
     //TAD SIMBOLO
+    Simbolo sim, x, y, xy;
+
+    sim
 }
