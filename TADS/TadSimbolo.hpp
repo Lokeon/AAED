@@ -14,11 +14,15 @@ class Simbolo
 {
   public:
     Simbolo() = default;
+    // Para hacer asigna -- Prueba
+    // Simbolo(const Simbolo& sim);
     void anadirTrazo(int trazo);
     void deshacerTrazo(int n);
     Simbolo respectoX();
     Simbolo respectoY();
     Simbolo respectoXY();
+    //Prueba
+    void mirar();
 
   private:
     Lista<int> lista_;
@@ -117,6 +121,21 @@ Simbolo Simbolo::respectoXY()
         }
     }
     return simetria;
+}
+
+// Prueba
+
+
+void Simbolo::mirar()
+{
+    typename Lista<int>::posicion pos;
+
+    std::cout << "Trazos" << std::endl;
+    for (pos = lista_.primera(); pos != lista_.fin(); pos = lista_.siguiente(pos))
+    {
+        std::cout << lista_.elemento(pos);
+    }
+    std::cout << std::endl;
 }
 
 #endif

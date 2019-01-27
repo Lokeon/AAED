@@ -1,6 +1,7 @@
 #include <iostream>
 #include "TadConsultorio.hpp"
 #include "TadSimbolo.hpp"
+#include "TadDicionario.hpp"
 
 int main(void)
 {
@@ -15,10 +16,29 @@ int main(void)
     // consult.altaMedico(dos);
     // consult.esperaPaciente(pa, uno);
 
+    // consult.bajaMedico(uno);
+    // consult.bajaMedico(dos);
+    // consult.consultaMedico(uno);
     // consult.consultaMedico(dos);
 
     //TAD SIMBOLO
-    Simbolo sim, x, y, xy;
+    // Simbolo sim, x, y, xy;
+    // sim.anadirTrazo(0);
+    // sim.anadirTrazo(1);
+    // sim.anadirTrazo(2);
+    // sim.anadirTrazo(3);
+    // sim.anadirTrazo(0);
 
-    sim
+    // x = sim.respectoX();
+    // y = sim.respectoY();
+    // xy = sim.respectoXY();
+    // x.mirar();
+    // y.mirar();
+    // xy.mirar();
+
+    // sim.deshacerTrazo(2);
+    // sim.mirar();
+
+    //TAD DICCIONARIO
+
 }

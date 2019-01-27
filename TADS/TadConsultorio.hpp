@@ -27,8 +27,8 @@ class Medico
     Medico() = default;
     Medico(std::string n, int id) : nombre_(n), id_(id) {}
     const Cola<Paciente> colaPaciente() const { return cola_; }
-    Cola<Paciente> metercolaPaciente(){ return cola_; }   
-    bool operator==(const Medico &medico) { return id_ == medico.id_; }
+    Cola<Paciente> metercolaPaciente() { return cola_; }
+
     ~Medico() = default;
     // Pruebas
     const int idMedico() const { return id_; }
@@ -103,6 +103,12 @@ void Consultorio::consultaPaciente(const Medico &medico)
     std::cout << "Id Paciente:" << lista_.elemento(lista_.buscar(medico)).colaPaciente().frente().idPaciente()
               << "Nombre Paciente:" << lista_.elemento(lista_.buscar(medico)).colaPaciente().frente().nombrePaciente()
               << std::endl;
+}
+
+// Sobrecarga para la busqueda de la Lista
+bool operator==(const Medico &medico, const Medico &medico2)
+{
+    return (medico2.idMedico() == medico.idMedico());
 }
 
 #endif
