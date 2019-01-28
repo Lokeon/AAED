@@ -2,6 +2,7 @@
 #include "TadConsultorio.hpp"
 #include "TadSimbolo.hpp"
 #include "TadDiccionario.hpp"
+#include "TadTexto.hpp"
 
 int main(void)
 {
@@ -46,7 +47,7 @@ int main(void)
     // tra.insertarTraducciones("verde");
     // tra.insertarTraducciones("rojo");
     // tar.insertarTraducciones("azul");
-    
+
     // tra.eliminarTraducciones("rojo");
 
     // dic.insertarDiccionario(tra);
@@ -54,4 +55,9 @@ int main(void)
     // dic.mostrarDiccionario(tar);
     // dic.mostrarDiccionario(tra);
 
+    //TAD Texto
+    // Texto text;
+    // text.insertarPila("ligare@@s@");
+    // text.aplicarCaracteres();
+    // text.mostrarTexto();
 }
