@@ -1,5 +1,5 @@
 
-#include "ListaVectorial.hpp"
+#include "./Lista/ListaVectorialPseudoestatica.hpp"
 #include <string>
 #include <iostream>
 
