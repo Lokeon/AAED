@@ -3,6 +3,7 @@
 #include "TadSimbolo.hpp"
 #include "TadDiccionario.hpp"
 #include "TadTexto.hpp"
+#include "TadConjunto.hpp"
 
 int main(void)
 {
@@ -60,4 +61,19 @@ int main(void)
     // text.insertarPila("ligare@@s@");
     // text.aplicarCaracteres();
     // text.mostrarTexto();
+
+    //TAD Conjunto
+    // Conjunto<int> con1,con2,res;
+
+    // con1.anadirElemento(1);
+    // con1.anadirElemento(2);
+    // con1.anadirElemento(3);
+    // con2.anadirElemento(1);
+    // con2.anadirElemento(4);
+    // con2.anadirElemento(5);
+
+    // res = res.unions(con1,con2);
+    // res = res.interse(con1,con2);
+    // res = res.diferencia(con1,con2);
+    // res.mostrarConjunto();
 }
