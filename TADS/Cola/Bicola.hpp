@@ -12,24 +12,21 @@ class Bicola
     Bicola() = default;                       //Constructor
     Bicola(const Bicola<T> &B);               //Constructor de copia
     Bicola<T> &operator=(const Bicola<T> &B); //Asignacion de bicolas
-    bool vacia() const;
-    const T &frente() const;  //Elemento del inicio
-    const T &detras() const;  //Elemento del final
-    void pop();               //Elimina por el comienzo
-    void popInv();            //Elimina por el final
-    void pushInv(const T &x); //Inserta por el comienzo
-    void push(const T &x);    //Inserta por el final
-    ~Bicola() = default;      //destructor
+    bool vacia() const;                       //True si es vacia
+    const T &frente() const;                  //Elemento del inicio
+    const T &detras() const;                  //Elemento del final
+    void pop();                               //Elimina por el comienzo
+    void popInv();                            //Elimina por el final
+    void pushInv(const T &x);                 //Inserta por el comienzo
+    void push(const T &x);                    //Inserta por el final
+    ~Bicola() = default;                      //Destructor
 
   private:
     struct nodo
     {
         T elto;
         nodo *sig;
-        nodo(const T &e, nodo *P = 0) : elto(e),
-                                        sig(P)
-        {
-        }
+        nodo(const T &e, nodo *P = 0) : elto(e), sig(P) {}
     };
 
     nodo *inicio, *fin; //extremos de la bicola
