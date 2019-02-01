@@ -14,7 +14,7 @@ class Bicola
     Bicola<T> &operator=(const Bicola<T> &B); //Asignacion de bicolas
     bool vacia() const;
     const T &frente() const;  //Elemento del inicio
-    const T &tope() const;    //Elemento del final
+    const T &detras() const;  //Elemento del final
     void pop();               //Elimina por el comienzo
     void popInv();            //Elimina por el final
     void pushInv(const T &x); //Inserta por el comienzo
@@ -103,7 +103,7 @@ inline const T &Bicola<T>::frente() const
 }
 
 template <typename T>
-inline const T &Bicola<T>::tope() const
+inline const T &Bicola<T>::detras() const
 {
     assert(!vacia());
 
