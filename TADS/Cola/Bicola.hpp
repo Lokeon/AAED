@@ -1,68 +1,90 @@
-#ifndef COLA_ENLA_H
-#define COLA_ENLA_H
+#ifndef BICOLA_HPP
+#define BICOLA_HPP
+
 #include <cassert>
+#include <iostream>
 
 template <typename T>
 class Bicola
 {
+
   public:
-    Bicola();                                 //constructor
-    Bicola(const Bicola<T> &p);               //copia
-    Bicola<T> &operator=(const Bicola<T> &p); //asig colas
+    Bicola() = default;                       //Constructor
+    Bicola(const Bicola<T> &B);               //Constructor de copia
+    Bicola<T> &operator=(const Bicola<T> &B); //Asignacion de bicolas
     bool vacia() const;
-    T frente() const;
-    T ultimo() const : void pop_f();
-    void pop();
-    void push(const T &x);
-    void push_f(const T &x);
-    ~Bicola(); //destructor
+    const T &frente() const;  //Elemento del inicio
+    const T &tope() const;    //Elemento del final
+    void pop();               //Elimina por el comienzo
+    void popInv();            //Elimina por el final
+    void pushInv(const T &x); //Inserta por el comienzo
+    void push(const T &x);    //Inserta por el final
+    ~Bicola() = default;      //destructor
+
   private:
     struct nodo
     {
         T elto;
         nodo *sig;
-        nodo(const T &e, nodo *p = 0) : elto(e), sig(p) {}
+        nodo(const T &e, nodo *P = 0) : elto(e),
+                                        sig(P)
+        {
+        }
     };
 
-    nodo *inicio, *fin; //extremos cola
+    nodo *inicio, *fin; //extremos de la bicola
 
-    void copiar(const Bicola<T> &c);
+    void copiar(const Bicola<T> &B);
 };
 
-//M�todo privado
+//Metodo privado
 template <typename T>
-void Cola<T>::copiar(const Cola<T> &c)
+void Bicola<T>::copiar(const Bicola<T> &B)
 {
-    if (c.inicio)
+    nodo *p;
+
+    //C no esta vacia
+
+    if (B.inicio)
     {
-        //c no vac�a. Copia el 1� elto
-        inicio = fin = new nodo(c.inicio->elto);
-        //copia el resto
-        for (nodo *q = c.inicio->sig; q; q = q->sig)
+        //Copiar el primer elemento
+
+        inicio = fin = new nodo(B.inicio->elto);
+
+        //Copiar el resto de elementos hasta el final de la cola
+
+        for (p = B.inicio->sig; p; p = p->sig)
         {
-            fin->sig = new nodo(q->elto);
+            fin->sig = new nodo(p->elto);
             fin = fin->sig;
         }
     }
 }
 
 template <typename T>
-inline Bicola<T>::Bicola() : inicio(0), fin(0) {}
-
-template <typename T>
-inline Bicola<T>::Bicola(const Bicola<T> &c) : inicio(0), fin(0)
+inline Bicola<T>::Bicola() : inicio(0), fin(0)
 {
-    copiar(c);
 }
 
 template <typename T>
-inline Bicola<T> &Bicola<T>::operator=(const Bicola<T> &c)
+inline Bicola<T>::Bicola(const Bicola<T> &B) : inicio(0), fin(0)
 {
-    if (this != &c)
+    copiar(B);
+}
+
+template <typename T>
+inline Bicola<T> &Bicola<T>::operator=(const Bicola<T> &B)
+{
+    //Evitar autoasignacion
+
+    if (this != &B)
     {
+        //Vaciar la cola actual
+
         this->~Bicola();
-        copiar(c);
+        copiar(B);
     }
+
     return *this;
 }
 
@@ -73,78 +95,99 @@ inline bool Bicola<T>::vacia() const
 }
 
 template <typename T>
-inline T Bicola<T>::frente() const
+inline const T &Bicola<T>::frente() const
 {
     assert(!vacia());
+
     return inicio->elto;
+}
+
+template <typename T>
+inline const T &Bicola<T>::tope() const
+{
+    assert(!vacia());
+
+    return fin->elto;
 }
 
 template <typename T>
 inline void Bicola<T>::pop()
 {
     assert(!vacia());
-    nodo *q = inicio;
-    inicio = q->sig;
+
+    nodo *p = inicio;
+    inicio = p->sig;
+
     if (!inicio)
         fin = 0;
-    delete q;
-}
-template <typename T>
-T Bicola<T>::ultimo() const
-{
-    assert(!vacia());
-    return fin->elto;
+
+    delete p;
 }
 
 template <typename T>
-inline void Bicola<T>::pop_u()
+inline void Bicola<T>::popInv()
 {
     assert(!vacia());
-    nodo *q = inicio;
+
+    nodo *p, *q;
+
+    p = inicio;
+
     if (inicio == fin)
-        inicio = 0;
+        inicio = fin = 0;
     else
-    {
-        while (q->sig != fin)
-        {
-            q = q->sig;
-        }
-        delete fin : fin = q;
-    }
-}
-template <typename T>
-void Bicola<T>::push(const T &x)
-{
-    nodo *q = new nodo(x);
-    if (inicio == 0) //cola vac�a
-        inicio = fin = q;
-    else
-        fin = fin->sig = q;
-}
-template <typename T>
-void Bicola<T>::push_u(const T &x)
-{
+        while (fin != p->sig)
+            p = p->sig;
 
-    if (vacia()) //cola vac�a
-        inicio = fin = new nodo(x);
-    else
-    {
-        nodo *q = inicio;
-        inicio = new nodo(x, q);
-    }
+    q = p;
+    p = fin;
+    fin = q;
+
+    delete p;
 }
-//Destructor: vac�a la cola
+
+template <typename T>
+inline void Bicola<T>::pushInv(const T &x)
+{
+    nodo *p = new nodo(x);
+
+    //Bicola vacia
+
+    if (fin == 0)
+        fin = inicio = p;
+    else
+        inicio = inicio->sig = p;
+}
+
+template <typename T>
+inline void Bicola<T>::push(const T &x)
+{
+    nodo *p = new nodo(x);
+
+    //Bicola vacia
+
+    if (inicio == 0)
+        inicio = fin = p;
+    else
+        fin = fin->sig = p;
+}
+
+//Destructor: vacia la cola
+
 template <typename T>
 Bicola<T>::~Bicola()
 {
-    nodo *q;
+    nodo *p;
     while (inicio)
     {
-        q = inicio->sig;
+        p = inicio->sig;
+
         delete inicio;
-        inicio = q;
+
+        inicio = p;
     }
+
     fin = 0;
 }
 
-#endif //Cola_ENLa_H
+#endif // Bicola_hpp
