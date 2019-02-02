@@ -5,7 +5,7 @@ class Binario
 {
   public:
     Binario() = default;
-    explicit Binario(std::string cadena);
+    explicit Binario(std::string cadena); 
     Binario operator&(const Binario &r) const; //AND
     Binario operator|(const Binario &r) const; //OR
     Binario operator^(const Binario &r) const; //XOR
