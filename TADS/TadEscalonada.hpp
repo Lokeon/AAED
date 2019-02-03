@@ -62,7 +62,7 @@ void Escalonada<T>::anadirSalto(const Intervalo<T> &inter)
         {
             if (lista_.elemento(lista_.anterior(lista_.fin())).fina().x() == inter.inicio().x())
             {
-                if (lista_.elemento(lista_.anterior(lista_.fin())).inicio().y() == inter.inicio().y())
+                if (lista_.elemento(lista_.anterior(lista_.fin())).inicio().y() != inter.inicio().y())
                 {
                     lista_.insertar(inter, lista_.fin());
                     ++saltoTotales;
