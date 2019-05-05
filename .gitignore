@@ -3,7 +3,7 @@
 # Edit at https://www.gitignore.io/?templates=c++
 
 
-.wakatime-project
+.wakatime-project1
 main
 pruebas*
 
