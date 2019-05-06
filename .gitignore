@@ -11,7 +11,7 @@ pruebas*
 # Prerequisites1
 *.d
 
-# Compiled Object files
+# Compiled Object files1
 *.slo
 *.lo
 *.o
